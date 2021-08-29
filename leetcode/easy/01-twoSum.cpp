@@ -11,9 +11,8 @@ vector<int> twoSum(vector<int> &nums, int target) {
 
         if (hasNum.find(nextNumber) != hasNum.end()) {
             return {hasNum[nextNumber], i};
-        } else {
-            hasNum[nums[i]] = i;
         }
+        hasNum[nums[i]] = i;
     }
     return {};
 }
