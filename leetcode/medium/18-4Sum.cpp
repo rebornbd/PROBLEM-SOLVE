@@ -120,3 +120,39 @@ int main() {
 
     return 0;
 }
+
+/*
+met-01: O(N^4)
+for i[0, n-3)
+    for j[i+1, n-2)
+        for k[j+1, n-1)
+            for l[k+1, n)
+                ans = {i, j, k, l}
+
+met-02: O(N^3)
+sort(nums)
+for i[0, n-3)
+    for j[i+1, n-2)
+        left = j+1
+        right = n - 1
+        while(right > left)
+            ans = {i, j, left, right}
+
+met-03: BEST-CASE | O(N^2), WORST_CASE | O(N^4)
+vector<int, vector<pair<int, int>>> allTwoSum;
+for i[0, n-1)
+    for j[i+1, n)
+        sum = nums[i] + nums[j]
+        allTwoSum[sum].push_back({i, j})
+
+for i[0, n-1)
+    for j[i+1, n)
+        remain = target - (nums[i] - nums[j])
+        find allTwoSum[remain]:
+            for (auto p : allTwoSum[remain]):
+                k = p.first
+                l = p.second
+
+                if i != k and i != l and j != k and j != l:
+                    ans = {i, j, k, l}
+*/
